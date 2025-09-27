@@ -1,57 +1,118 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# HushSense Contract  
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+A smart contract project for the **HushSense ecosystem**, deployed on Hedera via Hardhat. It defines, deploys, and manages the **HushSense smart contract** with full support for mainnet deployment.  
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## 📌 Features  
+- Smart contract written in **Solidity** (`hushsense.sol`)  
+- Hardhat-based deployment scripts  
+- **npx-compatible execution** for smooth workflow  
+- Mainnet-ready with `--network hederamainnet` flag  
+- Script to mint tokens from the deployed contract  
 
-This example project includes:
+---
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+## 📂 Project Structure  
+```
+hushsense-contract/
+├── contracts/
+│   └── hushsense.sol        # Core smart contract
+├── scripts/
+│   ├── deploy-hardhat.cjs   # Deployment script (mainnet/testnet ready)
+│   └── mint.js              # Minting script
+├── hardhat.config.cjs       # Hardhat configuration
+├── package.json             # Project dependencies
+└── README.md                # Documentation
+```  
 
-## Usage
+---
 
-### Running Tests
+## ⚙️ Prerequisites  
+- **Node.js** v18 or later  
+- **npm** or **yarn**  
+- Hardhat installed (`npm install --save-dev hardhat`)  
+- Hedera account with sufficient HBAR for deployment  
 
-To run all the tests in the project, execute the following command:
+---
 
-```shell
-npx hardhat test
+## 📥 Installation  
+Clone the repository and install dependencies:  
+
+```bash
+git clone https://github.com/your-username/hushsense-contract.git
+cd hushsense-contract
+npm install
 ```
 
-You can also selectively run the Solidity or `mocha` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
+## 🔑 Environment Setup  
+Create a `.env` file in the root directory:  
+
+```env
+MY_ACCOUNT_ID=0.0.xxxxx
+MY_PRIVATE_KEY=302e020100300506032b6570...
+HEDERA_NETWORK=hederamainnet
+```  
+
+---
+
+## 🚀 Usage  
+
+### 1️⃣ Compile Contracts  
+```bash
+npx hardhat compile
+```  
+
+### 2️⃣ Deploy Contract (Mainnet)  
+```bash
+npx hardhat run scripts/deploy-hardhat.cjs --network hederamainnet
+```  
+
+### 3️⃣ Mint via Contract  
+```bash
+npx hardhat run scripts/mint.js --network hederamainnet
+```  
+
+---
+
+## 📦 Deployment Notes  
+- Always double-check `.env` to ensure `hederamainnet` is set for production runs  
+- Maintain sufficient HBAR in the deployer account for gas fees  
+- Contracts can be upgraded or extended using standard Solidity patterns  
+
+---
+
+## 🛠️ Scripts Details  
+
+### **hushsense.sol**  
+Defines the core smart contract logic for HushSense.  
+
+### **deploy-hardhat.cjs**  
+Deploys the contract to Hedera, with full support for mainnet deployment via `npx`.  
+
+### **mint.js**  
+Mints tokens from the deployed smart contract.  
+
+---
+
+## 📜 License  
+
+This project is licensed under the **Apache License 2.0**.  
+
 ```
+Copyright 2025 HushSense
 
-### Make a deployment to Sepolia
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+   http://www.apache.org/licenses/LICENSE-2.0
 
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 ```

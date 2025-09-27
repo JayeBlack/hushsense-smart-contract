@@ -8,7 +8,7 @@ async function verifyKeyMatch() {
   
   const accountId = process.env.MY_ACCOUNT_ID;
   const privateKeyEth = process.env.MY_PRIVATE_KEY_ETH;
-  const expectedEvmAddress = "0x0000000000000000000000000000000000621865"; // From HashPack
+  const expectedEvmAddress =process.env.expectedEvmAddress; 
   
   console.log(`📋 Account ID: ${accountId}`);
   console.log(`📋 Expected EVM Address: ${expectedEvmAddress}`);

@@ -10,7 +10,6 @@ interface IHederaTokenService {
 
 library HederaResponseCodes {
     // Minimal subset of response codes used by this contract.
-    // Values are placeholders needed only to compile; adjust to the real Hedera response code values if required.
     int public constant SUCCESS = 22;
     int public constant TOKEN_ALREADY_ASSOCIATED_TO_ACCOUNT = 103;
 }

@@ -26,7 +26,7 @@ async function main() {
   // --- 3. Deploy Contract ---
   const contractCreateTx = new ContractCreateFlow()
     .setBytecode(bytecode)
-    .setGas(400_000) 
+    .setGas(800_000) 
     .setAdminKey(operatorKey.publicKey); 
 
   const txResponse = await contractCreateTx.execute(client);

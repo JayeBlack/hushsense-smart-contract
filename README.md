@@ -17,14 +17,23 @@ A smart contract project for the **HushSense ecosystem**, deployed on Hedera via
 ```
 hushsense-contract/
 ├── contracts/
-│   └── hushsense.sol        # Core smart contract
+│   └── HushSenseManager.sol # Core smart contract
 ├── scripts/
-│   ├── deploy-hardhat.cjs   # Deployment script (mainnet/testnet ready)
-│   └── mint.js              # Minting script
-├── hardhat.config.cjs       # Hardhat configuration
-├── package.json             # Project dependencies
-└── README.md                # Documentation
+│   ├── deploy-hardhat.cjs  # Deployment script (mainnet/testnet ready)
+│   ├── fix-keys.js         # Key fixing utility
+│   ├── initialise-contract.js # Contract initialization
+│   ├── mint.js            # Minting script
+│   └── test.js            # Test script
+├── test/                   # Test directory
+├── types/                  # Typechain output
+├── .env                    # Environment configuration
+├── hardhat.config.cjs      # Hardhat configuration
+└── README.md              # Documentation
 ```  
+
+## 🔗 Deployed Contracts
+- HTS Fungible Token (HUSH): [0.0.10048362](https://hashscan.io/mainnet/token/0.0.10048362)  
+- Manager Smart Contract: [0.0.10047928](https://hashscan.io/mainnet/contract/0.0.10047928)
 
 ---
 
